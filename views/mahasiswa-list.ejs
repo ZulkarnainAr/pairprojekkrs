@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar mhs</title>
+</head>
+<body>
+    <h1>Daftar Mahasiswa</h1>
+
+   
+
+    <table border=1>
+        <tr>
+        
+        <th>Name</th>
+        <th>Nim</th>
+        <th>Alamat</th>
+        <th>Jurusan</th>
+        
+        </tr>
+
+        <% for(let i=0; i<mahasiswa.length; i++){ %>
+            <tr>  
+              
+                <td><%= mahasiswa[i].nama %></td>
+                <td><%= mahasiswa[i].nim %></td>
+                <td><%= mahasiswa[i].alamat %></td>
+                <td><%= mahasiswa[i].jurusan %></td>
+                
+                
+            </tr>
+       <% } %>
+        
+    </table>
+</body>
+</html>
