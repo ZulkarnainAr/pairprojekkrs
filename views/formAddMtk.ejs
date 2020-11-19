@@ -3,18 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tambah Matakuliah</title>
+    <link rel="stylesheet" href="/styleNavbar.css">
+    <title>Krs Mahasiswa</title>
 </head>
 <body>
+    <%- include('_partialNavbar') %>
     <center>
-        <h1>Form Data Matakuliah</h1>
+        <h1>Form Data Mata kuliah</h1>
         <form action="/matakuliah/addMatakuliah" method="POST">
             <label for="name">Nama Matakuliah:</label>
             <input type="text" name="namaMatkul" placeholder="e.g: kimia, bahsa inggris"><br><br>
-            <label for="sks">SKS :</label>
-            <input type="text" name="sks" placeholder="e.g: 1,2,3"><br><br>
-            
-            <input type="submit" value="Save">
+            <label for="sks">Jumlah Sks :</label>
+            <input type="radio" name="sks" value="1"><label for="1">1 SKS</label>
+            <input type="radio" name="sks" value="2"><label for="2">2 SKS</label>
+            <input type="radio" name="sks" value="3"><label for="3">3 SKS</label>
+            <input type="radio" name="sks" value="4"><label for="4">4 SKS</label>
+            <br><br>
+            <input type="submit" value="Simpan">
         </form>
     </center>
 </body>

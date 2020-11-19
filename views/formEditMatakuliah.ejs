@@ -3,16 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tambah Matakuliah</title>
+    <link rel="stylesheet" href="/styleNavbar.css">
+    <title>Krs Mahasiswa</title>
 </head>
 <body>
+    <%- include('_partialNavbar') %>
     <center>
         <h1>Form Edit Matakuliah</h1>
         <form action="/matakuliah/editMatakuliah/<%=dataMatakuliah.id%>" method="POST">
             <label for="name">Nama Matakuliah :</label>
             <input type="text" name="namaMatkul" value="<%=dataMatakuliah.namaMatkul%>"><br><br>
-            <label for="nim">SKS :</label>
-            <input type="text" name="sks" value="<%=dataMatakuliah.sks%>"><br><br>
+            <label for="nim">Jumlah Sks :</label>          
+            <input type="radio" name="sks" value="1" <%= dataMatakuliah.sks == '1' ? 'checked' : '' %>><label for="1">1 SKS</label>
+            <input type="radio" name="sks" value="2" <%= dataMatakuliah.sks == '2' ? 'checked' : '' %>><label for="2">2 SKS</label>
+            <input type="radio" name="sks" value="3" <%= dataMatakuliah.sks == '3' ? 'checked' : '' %>><label for="3">3 SKS</label>
+            <input type="radio" name="sks" value="4" <%= dataMatakuliah.sks == '4' ? 'checked' : '' %>><label for="4">4 SKS</label>
+            <br><br>
+            <!-- <input type="text" name="sks" value="<%=dataMatakuliah.sks%>"><br><br> -->
            
             <input type="submit" value="Save">
         </form>

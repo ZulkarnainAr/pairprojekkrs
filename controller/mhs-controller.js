@@ -13,8 +13,6 @@ class MahasiswaController {
                 res.send(error)
             })
 
-
-
     }
 
     // static findOne(req, res) {
@@ -102,22 +100,25 @@ class MahasiswaController {
     //melihat list matakuliah
     static listMatkul(req, res) {
         let id = req.params.id
+        let dataMahasiswa
+        let dataMataKuliah
+
         Mahasiswa.findByPk(id, {
             include: [Matakuliah]
         })
-            .then(function(result){
-                Matakuliah.findAll()
-                .then(function(resultmtk){
-                    
-                    res.render("list-matkul-mhs",{mahasiswa:result, matakuliah:resultmtk})
-                }).catch(function(error){
-                    res.send(error)
-                })
-
-            })
-            .catch(function (error) {
-                res.send(error)
-            })
+        .then(result => {
+            dataMahasiswa = result
+            return Matakuliah.findAll()
+        })
+        .then(result2 => {
+            dataMataKuliah = result2
+            // res.send({dataMahasiswa, dataMataKuliah})
+            res.render('listMk', {dataMataKuliah, dataMahasiswa})
+            // res.render('listMatkulMhs', {dataMahasiswa, dataMataKuliah})
+        })
+        .catch(err => {
+            res.send(err)
+        })
     }
     
     static addMatkul(req, res){

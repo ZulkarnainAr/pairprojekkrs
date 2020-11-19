@@ -12,9 +12,6 @@ class MahasiswaController {
             .catch(function (error) {
                 res.send(error)
             })
-
-
-
     }
 //lihat matakuliah
     // static findOne(req, res) {
@@ -35,11 +32,13 @@ class MahasiswaController {
     }
 
     static addMatkul(req, res) {
+        // res.send(req.body)
         let newMatakuliah = {
             namaMatkul: req.body.namaMatkul,
-            sks: req.body.sks,
+            sks: +req.body.sks,
             
         }
+        // console.log(newMatakuliah);
 
         Matakuliah.create(newMatakuliah)
             .then(result => {
@@ -112,20 +111,5 @@ class MahasiswaController {
             })
     }
     
-    // static addMatkul(req, res){
-    //     let newKontrak = {
-    //         mahasiswaId: req.params.id,
-    //         matkulId: req.body.matkul,
-            
-    //     }
-
-    //     Kontrak.create(newKontrak)
-    //         .then(result => {
-    //             res.redirect(`/mahasiswa/${newKontrak.mahasiswaId}/matakuliah`)
-    //         })
-    //         .catch(err => {
-    //             res.send(err.message)
-    //         })
-    // }
 }
 module.exports = MahasiswaController

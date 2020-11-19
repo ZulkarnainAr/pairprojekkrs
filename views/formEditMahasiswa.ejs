@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tambah Mahasiswa</title>
+    <link rel="stylesheet" href="/styleNavbar.css">
+    <title>Krs Mahasiswa</title>
 </head>
 <body>
+    <%- include('_partialNavbar') %>
     <center>
         <h1>Form Edit Mahasiswa</h1>
         <form action="/mahasiswa/editMahasiswa/<%=dataMahasiswa.id%>" method="POST">
@@ -14,7 +16,7 @@
             <label for="nim">NIM :</label>
             <input type="text" name="nim" value="<%=dataMahasiswa.nim%>"><br><br>
             <label for="alamat">Alamat :</label>
-            <input type="text" name="alamat" value="<%=dataMahasiswa.alamat%>"><br><br>
+            <input type="text" name="alamat" value="<%=dataMahasiswa.alamatUpper%>"><br><br>
             <label for="jurusan">Jurusan :</label>
             <select name="jurusan">
                 <option value="" selected disabled>--Pilih Jurusan--</option>

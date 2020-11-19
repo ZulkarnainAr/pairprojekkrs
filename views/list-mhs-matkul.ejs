@@ -4,13 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daftar Mahasiswa</title>
+    <link rel="stylesheet" href="/styleNavbar.css">
+    <title>Krs Mahasiswa</title>
 </head>
 
 <body>
+    <%- include('_partialNavbar') %>
     <center>
         <h1>Daftar Mahasiswa</h1>
-    
+        
+        <div id="div1">
+
         <table border=1>
             <tr>
                 <th>Nama</th>
@@ -23,12 +27,14 @@
             <tr>
                 <td><%= matakuliah.Mahasiswas[i].nama %></td>   
                 <td><%= matakuliah.Mahasiswas[i].nim %></td>
-                <td><%= matakuliah.Mahasiswas[i].alamatLower %></td>
-                <td><%= matakuliah.Mahasiswas[i].jurusan %></td>
+                <td><%= matakuliah.Mahasiswas[i].alamatUpper %></td>
+                <td><%= matakuliah.Mahasiswas[i].jurusanCode %></td>
             </tr>
             <% } %>
 
         </table>
+                    
+    </div>
     </center>
 </body>
 

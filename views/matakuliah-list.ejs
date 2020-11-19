@@ -3,21 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daftar Matakuliah</title>
+    <link rel="stylesheet" href="/styleNavbar.css">
+    <title>Krs Mahasiswa</title>
+    <script>
+        function printContent(el){
+            var restorepage = document.body.innerHTML;
+            var printcontent = document.getElementById(el).innerHTML;
+            document.body.innerHTML = printcontent;
+            window.print();
+            document.body.innerHTML = restorepage;
+        }
+    </script>
 </head>
 <body>
+    <%- include('_partialNavbar') %>
     <center>
-        <h1>Daftar Matakuliah</h1>
+        <h1>Daftar Mata kuliah</h1>
+        <button onclick="printContent('div1')">Cetak</button>
 
-        <a href="/matakuliah/addMatakuliah">Tambah matakuliah</a>
+        <button><a href="/matakuliah/addMatakuliah">Tambah mata kuliah</a></button>
         <br><br>
-     
+        
+        <div id="div1">
+
          <table border=1>
              <tr>
              
              <th>Mata Kuliah</th>
              <th>SKS</th>
-             <th>Action</th>
+             <th>Opsi</th>
            
              
              </tr>
@@ -34,6 +48,8 @@
             <% } %>
              
          </table>
+                     
+        </div>
     </center>
 </body>
 </html>
