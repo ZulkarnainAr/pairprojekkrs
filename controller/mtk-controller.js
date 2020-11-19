@@ -28,7 +28,7 @@ class MahasiswaController {
     //  }
 
     static formAddMatkul(req, res) {
-        res.render('formAddMtk')
+        res.render('formAddMtk2')
     }
 
     static addMatkul(req, res) {
@@ -53,7 +53,7 @@ class MahasiswaController {
         let id = req.params.id
         Matakuliah.findByPk(id)
             .then(result => {
-                res.render('formEditMatakuliah', { dataMatakuliah: result })
+                res.render('formEditMatakuliah2', { dataMatakuliah: result })
             })
             .catch(err => {
                 res.send(err)

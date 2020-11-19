@@ -29,7 +29,7 @@ class MahasiswaController {
     //  }
 
     static formAddMahasiswa(req, res) {
-        res.render('formAddMhs')
+        res.render('formAddMhs2')
     }
 
     static addMahasiswa(req, res) {
@@ -53,7 +53,7 @@ class MahasiswaController {
         let id = req.params.id
         Mahasiswa.findByPk(id)
             .then(result => {
-                res.render('formEditMahasiswa', { dataMahasiswa: result })
+                res.render('formEditMahasiswa2', { dataMahasiswa: result })
             })
             .catch(err => {
                 res.send(err)

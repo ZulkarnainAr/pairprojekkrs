@@ -7,7 +7,7 @@ class MainController {
     }
 
     static registerForm(req, res) {
-        res.render('registerForm')
+        res.render('registerForm2')
     }
 
     static addUser(req, res) {
@@ -17,7 +17,7 @@ class MainController {
             username : req.body.username,
             password : req.body.password
         }
-        console.log(newUser);
+        // console.log(newUser);
         User.create(newUser)
         .then(result => {
             res.send('berhasil')
@@ -29,7 +29,7 @@ class MainController {
     }
 
     static loginForm(req, res) {
-        res.render('loginForm')
+        res.render('loginForm2')
     }
 
     static login(req, res) {

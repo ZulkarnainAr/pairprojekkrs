@@ -28,8 +28,8 @@ indexRouter.get('/register', doubleLogin, MainController.registerForm)
 indexRouter.post('/register', doubleLogin, MainController.addUser)
 
 //login
-indexRouter.get('/login', doubleLogin, MainController.loginForm)
-indexRouter.post('/login', doubleLogin, MainController.login)
+indexRouter.get('/login',doubleLogin, MainController.loginForm)
+indexRouter.post('/login',doubleLogin, MainController.login)
 
 //middleware log
 indexRouter.use(isLoggedIn)

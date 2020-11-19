@@ -4,21 +4,16 @@ const {
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Mahasiswa extends Model {
-    //untuk helper rumah alamat jadi huruf kecil
+    //untuk helper alamat jadi huruf besar 
     get alamatUpper() {
 
       return `${this.alamat[0].toUpperCase() + this.alamat.slice(1)}`
     }
 
     get jurusanCode() {
-      
-      return this.jurusan.split('_').join(' ')
-    }
 
-    // hitungTotalSKS() {
-    //   // harusnya get data kontrak, total semua sks nya
-    //   return 20
-    // }
+        return this.jurusan.split('_').join(' ')
+    }
 
     /**
      * Helper method for defining associations.
@@ -46,8 +41,6 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'Mahasiswa',
   });
-  // Mahasiswa.addHook('afterCreate', (instance, option) => {
-  //   instance.jumlah = 3
-  // })
+
   return Mahasiswa;
 };
