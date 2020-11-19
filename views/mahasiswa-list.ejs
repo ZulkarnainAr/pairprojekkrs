@@ -3,35 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daftar mhs</title>
+    <title>Daftar Mahasiswa</title>
 </head>
 <body>
-    <h1>Daftar Mahasiswa</h1>
+    <center>
+        <h1>Daftar Mahasiswa</h1>
 
-   
-
-    <table border=1>
-        <tr>
-        
-        <th>Name</th>
-        <th>Nim</th>
-        <th>Alamat</th>
-        <th>Jurusan</th>
-        
-        </tr>
-
-        <% for(let i=0; i<mahasiswa.length; i++){ %>
-            <tr>  
-              
-                <td><%= mahasiswa[i].nama %></td>
-                <td><%= mahasiswa[i].nim %></td>
-                <td><%= mahasiswa[i].alamat %></td>
-                <td><%= mahasiswa[i].jurusan %></td>
-                
-                
-            </tr>
-       <% } %>
-        
-    </table>
+        <a href="/mahasiswa/addMahasiswa">Tambah mahasiswa</a>
+        <br><br>
+     
+         <table border=1>
+             <tr>
+             
+             <th>Nama</th>
+             <th>Nim</th>
+             <th>Alamat</th>
+             <th>Jurusan</th>
+             <th>Opsi</th>
+             
+             </tr>
+     
+             <% for(let i=0; i<mahasiswa.length; i++){ %>
+                 <tr>  
+                   
+                     <td><%= mahasiswa[i].nama %></td>
+                     <td><%= mahasiswa[i].nim %></td>
+                     <td><%= mahasiswa[i].alamat %></td>
+                     <td><%= mahasiswa[i].jurusan %></td>
+                    <td><a href="/mahasiswa/editMahasiswa/<%=mahasiswa[i].id%>">Edit</a> | <a href="/mahasiswa/deleteMahasiswa/<%=mahasiswa[i].id%>">Delete</a></td>
+                 </tr>
+            <% } %>
+             
+         </table>
+    </center>
 </body>
 </html>

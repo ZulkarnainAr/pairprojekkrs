@@ -4,9 +4,13 @@ const PORT= 3000
 
 const routes=require("./routes/index")
 
+//view engine
 app.set("view engine","ejs")
+
+//middleware
 app.use(express.urlencoded({extended:false}))
 
+//route
 app.use("/",routes)
 
 app.listen(PORT, function(){

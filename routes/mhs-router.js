@@ -1,8 +1,21 @@
 const express =require("express")
 const mhsRouter=express.Router()
-
 const MhsController=require("../controller/mhs-controller")
-mhsRouter.get("/",MhsController.listMhs)
-mhsRouter.get("/:id",MhsController.findOne)
+
+//read
+mhsRouter.get("/", MhsController.listMhs)
+// mhsRouter.get("/:id", MhsController.findOne)
+
+//create
+mhsRouter.get("/addMahasiswa", MhsController.formAddMahasiswa)
+mhsRouter.post("/addMahasiswa", MhsController.addMahasiswa)
+
+//edit
+mhsRouter.get('/editMahasiswa/:id', MhsController.formEditMahasiswa)
+mhsRouter.post('/editMahasiswa/:id', MhsController.editMahasiswa)
+
+//delete
+mhsRouter.get('/deleteMahasiswa/:id', MhsController.deleteMahasiswa)
+
 
 module.exports=mhsRouter

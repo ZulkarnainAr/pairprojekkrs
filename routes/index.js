@@ -1,7 +1,11 @@
-const express =require("express")
-const indexRouter=express.Router()
+const express = require("express")
+const indexRouter = express.Router()
+const mahasiswa = require("./mhs-router")
+const MainController = require('../controller/mainController')
 
-const mahasiswa=require("./mhs-router")
+
+indexRouter.get('/', MainController.showHome)
+
 indexRouter.use("/mahasiswa",mahasiswa)
 
 module.exports=indexRouter
