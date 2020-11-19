@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Mahasiswa</title>
+</head>
+
+<body>
+    <center>
+        <h1>Daftar Mahasiswa</h1>
+    
+        <table border=1>
+            <tr>
+                <th>Nama</th>
+                <th>Nim</th>    
+                <th>Alamat</th> 
+                <th>Jurusan</th>
+            </tr>
+
+            <% for(let i=0; i<matakuliah.Mahasiswas.length; i++){ %>
+            <tr>
+                <td><%= matakuliah.Mahasiswas[i].nama %></td>   
+                <td><%= matakuliah.Mahasiswas[i].nim %></td>
+                <td><%= matakuliah.Mahasiswas[i].alamatLower %></td>
+                <td><%= matakuliah.Mahasiswas[i].jurusan %></td>
+            </tr>
+            <% } %>
+
+        </table>
+    </center>
+</body>
+
+</html>

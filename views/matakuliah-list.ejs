@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Matakuliah</title>
+</head>
+<body>
+    <center>
+        <h1>Daftar Matakuliah</h1>
+
+        <a href="/matakuliah/addMatakuliah">Tambah matakuliah</a>
+        <br><br>
+     
+         <table border=1>
+             <tr>
+             
+             <th>Mata Kuliah</th>
+             <th>SKS</th>
+             <th>Action</th>
+           
+             
+             </tr>
+     
+             <% for(let i=0; i<matakuliah.length; i++){ %>
+                 <tr>  
+                   
+                     <td><%= matakuliah[i].namaMatkul %></td>
+                     <td><%= matakuliah[i].sks %></td>
+                    
+                    <td><a href="/matakuliah/editMatakuliah/<%=matakuliah[i].id%>">Edit</a> | <a href="/matakuliah/deleteMatakuliah/<%=matakuliah[i].id%>">Delete</a> |
+                        <a href="/matakuliah/<%=matakuliah[i].id%>/mahasiswa">lihat Mahasiswa</a></td>
+                 </tr>
+            <% } %>
+             
+         </table>
+    </center>
+</body>
+</html>

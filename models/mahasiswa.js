@@ -4,6 +4,16 @@ const {
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Mahasiswa extends Model {
+    //untuk helper rumah alamat jadi huruf kecil
+    get alamatLower() {
+      return this.alamat.toLowerCase()
+    }
+
+    hitungTotalSKS() {
+      // harusnya get data kontrak, total semua sks nya
+      return 20
+    }
+
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -29,6 +39,9 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Mahasiswa',
+    hooks: {
+      //nanti pake hooks untuk enkripsi password sebelum diimpan ke database
+    }
   });
   return Mahasiswa;
 };

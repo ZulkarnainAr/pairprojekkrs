@@ -17,5 +17,10 @@ mhsRouter.post('/editMahasiswa/:id', MhsController.editMahasiswa)
 //delete
 mhsRouter.get('/deleteMahasiswa/:id', MhsController.deleteMahasiswa)
 
+//lihattabel matakuliah
+mhsRouter.get('/:id/matakuliah',MhsController.listMatkul)
+mhsRouter.post('/:id/matakuliah/add',MhsController.addMatkul)
+
+
 
 module.exports=mhsRouter

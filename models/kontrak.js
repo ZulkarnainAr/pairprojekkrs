@@ -23,7 +23,33 @@ module.exports = (sequelize, DataTypes) => {
   };
   Kontrak.init({
     mahasiswaId: DataTypes.INTEGER,
-    matkulId: DataTypes.INTEGER
+    matkulId: {
+      type:DataTypes.INTEGER,
+      
+      validate:{
+        //isExist adalah custom validation ke tabel kontrak
+         isExist(value,next){
+          Kontrak.findOne({
+            where:{
+              mahasiswaId:this.mahasiswaId,
+              matkulId:value
+            }
+          })
+          .then(function(result){
+            
+            if(result){
+               next("matakuliah sudah pernah diambil")
+            }else{
+              next()
+            }
+          })
+          .catch(function(error){
+            
+            next(error)
+          })
+        }
+      }
+    }
   }, {
     sequelize,
     modelName: 'Kontrak',

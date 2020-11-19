@@ -1,4 +1,4 @@
-const { Mahasiswa, Matakuliah } = require("../models/index")
+const { Mahasiswa, Matakuliah, Kontrak } = require("../models/index")
 
 class MahasiswaController {
     //menampilkan list mahasiswa
@@ -7,11 +7,13 @@ class MahasiswaController {
             order: [['nama', 'ASC']]
         })
             .then(function (result) {
-                res.render("mahasiswa-list",{mahasiswa: result})
+                res.render("mahasiswa-list", { mahasiswa: result })
             })
             .catch(function (error) {
                 res.send(error)
             })
+
+
 
     }
 
@@ -41,23 +43,23 @@ class MahasiswaController {
         }
 
         Mahasiswa.create(newMahasiwa)
-        .then(result => {
-            res.redirect('/mahasiswa')
-        })
-        .catch(err => {
-            res.send(err)
-        })
+            .then(result => {
+                res.redirect('/mahasiswa')
+            })
+            .catch(err => {
+                res.send(err)
+            })
     }
 
     static formEditMahasiswa(req, res) {
         let id = req.params.id
         Mahasiswa.findByPk(id)
-        .then(result => {
-            res.render('formEditMahasiswa', {dataMahasiswa : result})
-        })
-        .catch(err => {
-            res.send(err)
-        })
+            .then(result => {
+                res.render('formEditMahasiswa', { dataMahasiswa: result })
+            })
+            .catch(err => {
+                res.send(err)
+            })
     }
 
     static editMahasiswa(req, res) {
@@ -69,32 +71,69 @@ class MahasiswaController {
             jurusan: req.body.jurusan
         }
         Mahasiswa.update(editedData, {
-            where : {
-                id : idMhs
+            where: {
+                id: idMhs
             }
         })
-        .then(result => {
-            res.redirect('/mahasiswa')
-        })
-        .catch(err => {
-            res.send(err)
-        })
+            .then(result => {
+                res.redirect('/mahasiswa')
+            })
+            .catch(err => {
+                res.send(err)
+            })
     }
 
     static deleteMahasiswa(req, res) {
         let idMhs = req.params.id
 
         Mahasiswa.destroy({
-            where : {
-                id : idMhs
+            where: {
+                id: idMhs
             }
         })
-        .then(result => {
-            res.redirect('/mahasiswa')
+            .then(result => {
+                res.redirect('/mahasiswa')
+            })
+            .catch(err => {
+                res.send(err)
+            })
+    }
+
+    //melihat list matakuliah
+    static listMatkul(req, res) {
+        let id = req.params.id
+        Mahasiswa.findByPk(id, {
+            include: [Matakuliah]
         })
-        .catch(err => {
-            res.send(err)
-        })
+            .then(function(result){
+                Matakuliah.findAll()
+                .then(function(resultmtk){
+                    
+                    res.render("list-matkul-mhs",{mahasiswa:result, matakuliah:resultmtk})
+                }).catch(function(error){
+                    res.send(error)
+                })
+
+            })
+            .catch(function (error) {
+                res.send(error)
+            })
+    }
+    
+    static addMatkul(req, res){
+        let newKontrak = {
+            mahasiswaId: req.params.id,
+            matkulId: req.body.matkul,
+            
+        }
+
+        Kontrak.create(newKontrak)
+            .then(result => {
+                res.redirect(`/mahasiswa/${newKontrak.mahasiswaId}/matakuliah`)
+            })
+            .catch(err => {
+                res.send(err.message)
+            })
     }
 }
 module.exports = MahasiswaController

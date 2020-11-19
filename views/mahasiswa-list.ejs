@@ -28,9 +28,10 @@
                    
                      <td><%= mahasiswa[i].nama %></td>
                      <td><%= mahasiswa[i].nim %></td>
-                     <td><%= mahasiswa[i].alamat %></td>
+                     <td><%= mahasiswa[i].alamatLower %></td>
                      <td><%= mahasiswa[i].jurusan %></td>
-                    <td><a href="/mahasiswa/editMahasiswa/<%=mahasiswa[i].id%>">Edit</a> | <a href="/mahasiswa/deleteMahasiswa/<%=mahasiswa[i].id%>">Delete</a></td>
+                    <td><a href="/mahasiswa/editMahasiswa/<%=mahasiswa[i].id%>">Edit</a> | <a href="/mahasiswa/deleteMahasiswa/<%=mahasiswa[i].id%>">Delete</a> |
+                        <a href="/mahasiswa/<%=mahasiswa[i].id%>/matakuliah">Mata Kuliah</a></td>
                  </tr>
             <% } %>
              
