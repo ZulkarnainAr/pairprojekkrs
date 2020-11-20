@@ -13,7 +13,7 @@ class MainController {
     static addUser(req, res) {
                     // res.send(req.body)
         const newUser = {
-            nama : req.body.name,
+            nama : req.body.nama,
             username : req.body.username,
             password : req.body.password
         }
@@ -24,6 +24,7 @@ class MainController {
             // res.redirect('/login')
         })
         .catch(err => {
+            console.log(err)
             res.send('gagalllllllllllllllllllllllllll')
         })
     }
